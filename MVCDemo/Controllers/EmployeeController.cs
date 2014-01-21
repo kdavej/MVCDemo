@@ -16,5 +16,27 @@ namespace MVCDemo.Controllers
             return View(employees);
         }
 
+        [HttpGet]
+        [ActionName("Create")]
+        public ActionResult Create_Get()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ActionName("Create")]
+        public ActionResult Create_Post(Employee employee)
+        {
+            //Employee employee = new Employee();
+            //TryUpdateModel(employee);
+
+            if (ModelState.IsValid)
+            {
+                EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
+                employeeBusinessLayer.AddEmployee(employee);
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
     }
 }
