@@ -23,9 +23,9 @@
             </div>
             <div class="editor-field">
                 @Html.DropDownList("Gender", new List<SelectListItem>{
-            new SelectListItem{ Text = "Male", Value="Male"},
-            new SelectListItem{ Text = "Female", Value="Female"}
-            }, "Select Gender")
+                new SelectListItem{ Text = "Male", Value="Male"},
+                new SelectListItem{ Text = "Female", Value="Female"}
+                }, "Select Gender")
                 @Html.ValidationMessageFor(model => model.Gender)
             </div>
             <div class="editor-label">
