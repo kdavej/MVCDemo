@@ -19,6 +19,7 @@
         </div>
         <div class="editor-field">
             @Html.DisplayFor(model => model.Name)
+            @Html.HiddenFor(model => model.Name)
             @Html.ValidationMessageFor(model => model.Name)
         </div>
 
