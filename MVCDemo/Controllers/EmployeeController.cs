@@ -52,7 +52,7 @@ namespace MVCDemo.Controllers
         {
             EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
             Employee employee = employeeBusinessLayer.Employees.Single(x => x.ID == id);
-            UpdateModel(employee, null, null, new string[] { "Name" });
+            UpdateModel<IEmployee>(employee);
 
             if (ModelState.IsValid)
             {
@@ -60,6 +60,13 @@ namespace MVCDemo.Controllers
                 return RedirectToAction("Index");
             }
             return View(employee);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
+            employeeBusinessLayer.DeleteEmployee(id);
+            return RedirectToAction("Index");
         }
     }
 }

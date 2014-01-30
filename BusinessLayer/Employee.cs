@@ -14,7 +14,7 @@ namespace BusinessLayer
         DateTime? DateOfBirth { get; set; }
     }
     
-    public class Employee
+    public class Employee : IEmployee
     {
         public int ID { get; set; }
         [Required]
